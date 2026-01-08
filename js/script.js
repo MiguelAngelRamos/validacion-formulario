@@ -11,4 +11,9 @@ const passError = document.querySelector('[data-js="password-error"]');
 loginForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
+  // Obtener los valores escritos en los inputs de correo y contraseña
+  const emailValue = emailInput.value.trim();
+  const passValue = passInput.value.trim();
+  console.log(`El valor que escribio el usuario en correo es: ${emailValue}`);
+  console.log(`El valor que escribio el usuario en password es: ${passValue}`);
 })
