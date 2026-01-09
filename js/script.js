@@ -12,6 +12,7 @@ const loginForm = document.getElementById('login-form');
 const emailInput = document.querySelector('[data-js="email-input"]');
 const passInput = document.querySelector('[data-js="password-input"]');
 
+// los spans de errores
 const emailError = document.querySelector('[data-js="email-error"]');
 const passError = document.querySelector('[data-js="password-error"]');
 
@@ -22,18 +23,35 @@ loginForm.addEventListener('submit', function(event) {
   const emailValue = emailInput.value.trim();
   const passValue = passInput.value.trim();
  
-  // validar email
-  const isEmailInvalid = VALIDATION_RULES.email.test(emailValue);
+  // validar email sofia@correo.com
+  const isEmailInvalid = !VALIDATION_RULES.email.test(emailValue);
   console.log(isEmailInvalid);
+  //* Si cumple con el formato de correo retorna true
 
-  // validar password
-  const isPassInvalid = VALIDATION_RULES.password.test(passValue);
+  // validar password Academy123
+  const isPassInvalid = !VALIDATION_RULES.password.test(passValue);
   console.log(isPassInvalid);
+  //* Si cumple con el formato  de password retorna true
 
   // * Esta condición va ser verdadera siempre y cuando el email y el password sean validos
-  /*
-  if() {
 
+  if(!isEmailInvalid && !isPassInvalid) {
+    alert('Validacion exitosa. Enviando al servidor....')
   }
-  */
+  // if(isEmailInvalid && isPassInvalid) {
+  //   alert('Validacion exitosa, Enviado datos al Servidor..')
+  // } else {
+  //   alert('Error en los datos no podemos enviar información al servidor')
+  // }
+
+  //  if(isEmailInvalid && isPassInvalid) {
+  //   console.log('El email y la contraseña invalidos');
+  //  } else if(isEmailInvalid) {
+  //   console.log('Email invalido')
+  //  } else if(isPassInvalid) {
+  //   console.log('Contraseña invalida')
+  //  } else {
+  //   alert('Datos enviados al servidor');
+  //  }
+
 })
